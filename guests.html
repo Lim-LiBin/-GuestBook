@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>방명록 남기기</title>
+    <!-- 스타일 지정 -->
+    <style>
+        /* countdown 클래스 스타일 */
+        .countdown {
+            font-size: 24px; /* 폰트 사이즈 */
+            text-align: center; /* 가운데 정렬 */
+        }
+        /* body 스타일 */
+        body{
+            text-align: center; /* 가운데 정렬 */
+            background-color: #B8DFF8; /* 배경색 지정 */
+        }
+    </style>
+    <!-- MQTT 및 자바스크립트 파일 로드 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.2/mqttws31.min.js" type="text/javascript"></script>
+    <script src="./static/script.js" type="text/javascript"></script>
+</head>
+<body>
+    <!-- 제목 및 안내 메시지 -->
+    <h3>방명록 남기기</h3>
+    <hr>
+    <p>
+        Tip!<br>
+        빨간불이 뜨는 자리에서 사진을 찍는 걸 추천합니다!
+        <br><br>
+        사진을 찍고 싶다면 이름을 입력하고 아래 버튼을 클릭해주세요
+    </p>
+    <br><hr>
+
+    <!-- 거리 및 온도 정보를 표시하는 부분 -->
+    <br><b><div id = "dis_message"></div></b><br>
+    <b><div id = "temp_message"></div></b>
+    <br><hr>
+
+    <!-- 방명록 폼 -->
+    <form id="takePictureForm" action="/takePicture" method="POST">
+        <!-- 이름 입력 -->
+        이름 <input name="name" type="text" required /><br>
+        <!-- 3, 2, 1, 스마일 나오는 부분 -->
+        <div class="countdown" id="countdown"></div><br>
+        <!-- 사진 찍기 버튼 -->
+        <input name="submit_button" value="사진 찍기" type="button" onclick="startCountdown(); setTimeout(submitForm, 5000);">
+    </form><br><br>
+    <!-- 캔버스로 사진을 실시간으로 출력하는 부분 -->
+    <canvas id="myCanvas" width="600" height="400"></canvas>
+</body>
+</html>
