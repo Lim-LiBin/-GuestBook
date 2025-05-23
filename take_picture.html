@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>사진 찍기</title>
+        <!-- 스타일 지정 -->
+    <style>
+        /* 배경색 스타일 */
+        body {
+            background-color: #B8DFF8;
+        }
+        /* 이미지 크기 조절 스타일 */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;  /* 이미지를 블록 요소로 설정하여 가로 중앙 정렬 */
+            margin: auto;  /* 가로 중앙 정렬 */
+        }
+        h3{
+            text-align: center;
+        }
+        form{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- 이름과 환영 메시지 표시 -->
+    <h3>Welcome {{ guest }}!</h3>
+    <hr><br><br>
+    <!-- 이미지 표시 -->
+    <img src="{{ url_for('static', filename='images/' + fname) }}" alt="Guest Photo">
+    <br>
+    <!-- 방명록 보기 버튼 -->
+    <form action="/guestBook" method="POST">
+        <input name="submit" value="방명록 보기" type="submit">
+    </form>
+</body>
+</html>
