@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Welcome to My House!</title>
+        <!-- 스타일 지정 -->
+        <style>
+            /* body 스타일 */
+            body{
+                text-align: center; /* 가운데 정렬 */
+                background-color: #B8DFF8; /* 배경색 지정 */
+            }
+        </style>
+    </head>
+    
+    <body>
+        <!-- 웹 페이지 제목 및 스타일된 구분선 -->
+        <h1>Welcome to My House</h1>
+        <hr>
+        <!-- 환영 메시지 및 안내 문구 -->
+        <p>우리 집에 온 걸 환영해요!<br></p>
+        <p>우리의 추억을 위해 방명록을 남겨줬으면 좋겠어요^0^~*</p>
+        <p>아래 <b>'방명록 남기기'</b>를 클릭하여 이름을 입력하고 사진 찍기를 눌러주세요</p>
+        <p>그럼 3초 후에 사진이 찍힙니다! 방명록을 보고 싶다면 <b>'방명록 보기'</b>를 눌러주세요</p>
+        <!-- 강조 표시-->
+        <mark>사진을 찍기 전 Tip을 확인해주세요~!</mark>
+        <br>
+        <br>
+        <!-- 방명록 남기기와 방명록 보기에 대한 폼 -->
+        <form action="/guest" method="post">
+            <input name="submit" value="방명록 남기기" type="submit">
+        </form><br>
+        <form action="/guestBook" method="post">
+            <input name="submit" value="방명록 보기" type="submit">
+        </form>
+    </body>
+</html>
