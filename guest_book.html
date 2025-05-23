@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>방명록</title>
+    <!-- 스타일 지정 -->
+    <style>
+        /* body 스타일 */
+        body {
+            background-color: #B8DFF8; /* 배경색 지정 */
+        }
+        /* p 스타일 */
+        p {
+            display: inline-block; /* 가로로 표시 */
+        }
+        /* h3 스타일 */
+        h3{
+            text-align: center; /* 가운데 정렬 */
+        }
+        /* form 스타일 */
+        form{
+            text-align: center; /* 가운데 정렬 */
+        }
+    </style>
+</head>
+<body>
+     <!-- 페이지 제목 -->
+    <h3>방명록</h3>
+    <hr><br>
+
+    {% if entries %}
+        {% for entry in entries %}
+            <p>
+                <!-- 각 항목에 대한 방명록 내용 -->
+                <!-- 번호와 이름이 순서대로 표시 -->
+                <strong>{{ loop.index }}. {{ guest_names[loop.index-1] }}</strong>
+                <br><br>
+                <!-- 이미지 표시 -->
+                <img src="{{ url_for('static', filename='images/' + entry) }}" width="200" height="200">
+                <br>
+                <!-- 날짜 표시 -->
+                {{ date[loop.index-1] }}
+            </p>
+        {% endfor %}
+    {% else %}
+        <!-- 방명록이 없는 경우 -->
+        <p>No entries yet.</p>
+    {% endif %}
+
+    <br>
+    <br>
+    <!-- 홈으로 돌아가는 버튼 -->
+    <form action="/" method="POST">
+        <input name="submit" value="홈으로 돌아가기" type="submit">
+    </form>
+</body>
+</html>
